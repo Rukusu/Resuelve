@@ -1,4 +1,5 @@
 /*General*/
+
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
 html,
 body {
@@ -23,5 +24,15 @@ div.login-wrapper{
     border-radius: 10px;
     box-shadow: -7px 5px 3px 0em #4A70B2;
     padding: 40px 35px;
+}
+.botonMovimientos{
+	background: #ffd200;
+    background-position: left bottom;
+    border: 2px solid #FFD200;
+    cursor: pointer;
+    display: inline-block;
+    padding: 11px;
+    transition: all .2s ease;
+
 }
 /*Fonts*/

@@ -14,17 +14,31 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
 		
 		<script>
-			
 			var user= 'admin';
 			var password ="pruebaresuelve123";
-			var listadoUsuarios;
-			
-			var promesaLogin = login(user,CryptoJS.MD5(password).toString());
+			var promesaLogin;
 
-			
-			obtenerListadoUsuarios(promesaLogin,"https://us-central1-prueba-resuelve.cloudfunctions.net/users/list?page=23&sortBy=apellido&sortDirection=desc");
+			$(document).ready(function(){
+			  $("#btnEnviar").click(function(){
+			       	user = $("#in-correo").val();
+			    	password = CryptoJS.MD5($("#in-pass").val()).toString();
+			    	promesaLogin = login(user,password);
 
-			
+			    	promesaLogin.then(function (responseLogin){
+			    		// Salvamos la Sesión de la promesa
+						sessionStorage.setItem("promesaLogin", "promesaLogin");
+
+						//Redireccionamos a la vista
+
+				    	obtenerListadoUsuarios(promesaLogin,"https://us-central1-prueba-resuelve.cloudfunctions.net/users/list?page=23&sortBy=apellido&sortDirection=desc");
+
+			    	}).catch(function(error) {
+						console.log(error)
+					
+					})
+			  });
+			});
+
 
 			function login(user, password){
 				//Se hace la peticion a la API para login
@@ -37,8 +51,9 @@
 			}
 
 			function obtenerListadoUsuarios(promesaLogin,urlPagina){
-				
-				promesaLogin.then(function (responseLogin) {
+
+
+					promesaLogin.then(function (responseLogin) {
 					//Si recibimos un Estatus 200 del Login
 					console.log(responseLogin);
 					var token=responseLogin.headers.authorization;
@@ -65,7 +80,7 @@
 				//En caso de error
 				  console.log(error);
 				});
-				
+
 			}
 
 			function parseJwt (token) {

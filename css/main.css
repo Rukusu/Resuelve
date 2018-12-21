@@ -1,2 +1,27 @@
 /*General*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  letter-spacing: 1px;
+  line-height: 25px;
+  width: 100%;
+  background: #F1F6FF;
+}
+
+
+div.contenido-login{
+	height: 100vh;
+}
+div.login-wrapper{
+	border: 10px solid rgba(74, 112, 178, 0.60);
+    background: #fbfcff;
+    border-radius: 10px;
+    box-shadow: -7px 5px 3px 0em #4A70B2;
+    padding: 40px 35px;
+}
 /*Fonts*/

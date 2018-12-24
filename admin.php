@@ -6,32 +6,65 @@ include 'header.php';
 */
 ?>
 
-<secttion class="container-fluid">
-	<p class="titulo">Listado de Clientes</p>
-	<div class="table-responsive-lg">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Segundo nombre</th>
-					<th>Apellido</th>
-					<th>Segundo apellido</th>
-					<th>Correo</th>
-					<th>Estatus</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody id="paginaContenido">
-
-			</tbody>
-		</table>
+<section class="container-fluid">
+	<div class="row backgroundAzul justify-content-end topBar align-items-center">
+		<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 text-right">
+			<p class="nombreUsuario"></p>
+		</div>
+		<div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 text-right">
+			<button type="button" class="botonAmarillo" id="botonCerrarSesion">Cerrar Sesión</button>
+		</div>
 	</div>
-	<ul id="listaPaginacion" class="pagination-sm"></ul>
+</section>
+
+<section class="container-fluid tablaContenido">
+	<div class="row">
+		<div class="col-12">
+			<p class="titulo">Listado de Clientes</p>
+			<div class="table-responsive-lg tablaInformacion">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Segundo nombre</th>
+							<th>Apellido</th>
+							<th>Segundo apellido</th>
+							<th>Correo</th>
+							<th>Estatus</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody id="paginaContenido">
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<ul id="listaPaginacion" class="pagination-sm justify-content-center"></ul>
+		</div>
+	</div>
+
+	
+</section>
 	<hr>
-	<div class="table-responsive">
-		<p class="titulo">Listado de Moviminientos</p>
-		<p class="cuenta">Cuenta:</p>
-		<table class="table">
+<section class="container-fluid tablaContenido">
+
+	<div class="table-responsive tablaInformacion">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+				<p class="titulo">Listado de Movimientos</p>
+				<p class="cuenta">Cuenta:</p>
+			</div>
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+				<button type="button" class="botonAmarillo botonDivisa active" id="botonCambiaPeso" disabled="">Cantidad en Pesos</button>
+				<button type="button" class="botonAmarillo botonDivisa" id="botonCambiaDolar" disabled="">Cantidad en Dolares</button>
+			</div>
+		</div>
+		
+		<table id="movimientos" class="table">
 			<thead>
 				<tr>
 					<th>Descripcion</th>
@@ -45,11 +78,13 @@ include 'header.php';
 			</tbody>
 		</table>
 	</div>
-	<div id="paginadorMovimientos">
-		<ul id="listaPaginacionMovimientos" class="pagination-sm"></ul>
+	<div class="row">
+		<div id="paginadorMovimientos" class="col-12">
+			<ul id="listaPaginacionMovimientos" class="pagination-sm justify-content-center"></ul>
+		</div>
 	</div>
 	
 	
-</secttion>
+</section>
 
 <?php include 'footer.php';?>

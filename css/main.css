@@ -1,6 +1,7 @@
 /*General*/
-
+/*Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+
 html,
 body {
   font-family: 'Roboto', sans-serif;
@@ -9,7 +10,7 @@ body {
   font-weight: 400;
   height: 100%;
   letter-spacing: 1px;
-  line-height: 25px;
+  line-height: 18px;
   width: 100%;
   background: #F1F6FF;
 }
@@ -25,7 +26,7 @@ div.login-wrapper{
     box-shadow: -7px 5px 3px 0em #4A70B2;
     padding: 40px 35px;
 }
-.botonMovimientos{
+.botonAmarillo{
 	background: #ffd200;
     background-position: left bottom;
     border: 2px solid #FFD200;
@@ -35,4 +36,104 @@ div.login-wrapper{
     transition: all .2s ease;
 
 }
-/*Fonts*/
+.botonAmarillo:disabled,.botonAmarillo.active:disabled{
+	background: #d1d3d4;
+	border: 2px solid #d1d3d4;
+}
+.botonAmarillo:disabled:hover{
+	background: #d1d3d4;
+	border: 2px solid #d1d3d4;
+}
+.botonAmarillo:hover{
+	background: #cca700;
+	border: 2px solid #cca800;
+}
+.backgroundAzul{
+	background: #005CB2;
+}
+
+
+.topBar{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.botonMovimientos.active,.botonDivisa.active{
+	background: #00daff;
+	border: 2px solid #00daff;
+}
+
+/*Errores*/
+p.errorLogin{
+	color: #d21616;
+}
+
+p.nombreUsuario{
+	color: #fff;
+	font-style: italic;
+	margin: 0;
+}
+
+/*Admin*/
+section.tablaContenido{
+	margin-top: 50px;
+}
+section.tablaContenido p.titulo{
+	font-size: 32px;
+	line-height: 32px
+}
+section.tablaContenido div.tablaInformacion{
+	background: #ffffff;
+    padding: 40px 15px;
+    box-shadow: 5px 10px 10px 0px #dcdcdc;
+    border: 2px solid #c3c3c1;
+    border-radius: 20px;
+}
+
+#listaPaginacion, #listaPaginacionMovimientos{
+	margin-top: 25px;
+}
+
+.table{
+	margin-top: 25px;
+}
+.table tbody tr td{
+	vertical-align: middle;
+}
+/*Media Queries*/
+
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px){
+	li.first,li.prev,li.next,li.last{
+		display: none;
+	}
+
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+	li.first,li.prev,li.next,li.last{
+		display: none;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px){ 
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+	section.tablaContenido p.titulo {
+	    font-size: 40px;
+	    line-height: 40px;
+	}
+	section.tablaContenido div.tablaInformacion{
+	    padding: 40px 40px;
+	}
+}

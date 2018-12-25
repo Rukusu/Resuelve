@@ -18,7 +18,7 @@ include 'header.php';
 				</div>
 				<div class="form-group">
 			  		<label for="in-pass">Contraseña</label>
-			    	<input type="password" class="form-control" id="in-pass" name="in-pass" placeholder="Ingresa tu contraseña" value="pruebaresuelve123_">
+			    	<input type="password" class="form-control" id="in-pass" name="in-pass" placeholder="Ingresa tu contraseña" value="pruebaresuelve123">
 				</div>
 				<p class="errorLogin"></p>
 				<button type="button" id="btnEnviar" class="botonAmarillo float-right">Enviar</button>

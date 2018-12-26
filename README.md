@@ -9,3 +9,5 @@ El proyecto está desarrollado con las siguientes tecnologías:
 - Axios
 
 Para su instalación basta con colocar el proyecto en un sevidor Apache, en mi caso utilicé [XAMPP para Windows](https://www.apachefriends.org/es/index.html), una vez instalado sólo debe colocar el proyecto en la carpeta HTDOCS, prender el servidor Apache y escribir http://localhost/resuelve/ en el navegador.
+## Pruebas
+En la rama de pruebas encontrarán la vista del index adaptada con 3 botones de 3 diferentes usuarios para probar el desarrollo.

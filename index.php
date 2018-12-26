@@ -25,7 +25,24 @@ include 'header.php';
 			</form>
 		</div>
 	</div>
-	
+	<div class="row">
+		<div class="col">
+			<p>Acceder como <strong>administrador</strong></p>
+			<button type="button" id="btnAdmin" class="botonAmarillo btnPruebas">Probar</button>
+			<p>Con éste usuario y contraseña se podrá acceder al panel de administrador, visualizando el listado de clientes y los movimientos de cada uno.</p>
+		</div>
+		<div class="col">
+			<p>Acceder como <strong>cliente activo</strong></p>
+			<button type="button" id="btnCActivo" class="botonAmarillo btnPruebas">Probar</button>
+			<p>Con éste usuario y contraseña se podrá acceder a la cuenta del cliente para consultar sus movimientos.</p>
+		</div>
+		<div class="col">
+			<p>Acceder <strong>cliente no activo</strong></p>
+			<button type="button" id="btnCInactivo" class="botonAmarillo btnPruebas">Probar</button>
+			<p>Con éste usuario y contraseña no se podrá acceder ya que el usuario no está activo. Mostrará el mensaje <strong>"Usuario o password incorrectos"</strong> que envía el servidor.</p>
+		</div>
+	</div>
+
 </section>
 
 <?php include 'footer.php';?>

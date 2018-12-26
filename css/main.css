@@ -17,7 +17,7 @@ body {
 
 
 div.contenido-login{
-	height: 100vh;
+	height: 80vh;
 }
 div.login-wrapper{
 	border: 10px solid rgba(74, 112, 178, 0.60);

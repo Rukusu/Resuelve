@@ -71,3 +71,32 @@ function isValidEmailAddress(email) {
     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
     return pattern.test(email);
 };
+
+/*Función para hacer pruebas*/
+jQuery(function($){
+	$(".btnPruebas").click(function(){
+		
+		//Obtenemos el id de la prueba
+		switch($(this).attr("id"))
+		{
+			case "btnAdmin":
+			    $("#in-correo").val("admin");
+			    $("#in-pass").val("pruebaresuelve123")
+			    break;
+			case "btnCActivo":
+			    $("#in-correo").val("Gregory.Keebler@yahoo.com");
+			    $("#in-pass").val("pruebaresuelve123")
+			    break;
+			case "btnCInactivo":
+			    $("#in-correo").val("Ross78@yahoo.com");
+			    $("#in-pass").val("pruebaresuelve123");
+		    	break;
+			default:
+		    	$("#in-correo").val("");
+			    $("#in-pass").val("");
+		}
+
+
+		
+	});
+});

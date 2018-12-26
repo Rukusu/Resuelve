@@ -14,11 +14,11 @@ include 'header.php';
 			<form>
 				<div class="form-group">
 			    	<label for="in-correo">Correo</label>
-			    	<input type="input" class="form-control" id="in-correo" name="in-correo"  placeholder="correo@ejemplo.com" value="admin">
+			    	<input type="input" class="form-control" id="in-correo" name="in-correo"  placeholder="correo@ejemplo.com" value="">
 				</div>
 				<div class="form-group">
 			  		<label for="in-pass">Contraseña</label>
-			    	<input type="password" class="form-control" id="in-pass" name="in-pass" placeholder="Ingresa tu contraseña" value="pruebaresuelve123">
+			    	<input type="password" class="form-control" id="in-pass" name="in-pass" placeholder="Ingresa tu contraseña" value="">
 				</div>
 				<p class="errorLogin"></p>
 				<button type="button" id="btnEnviar" class="botonAmarillo float-right">Enviar</button>

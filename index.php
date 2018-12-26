@@ -39,7 +39,7 @@ include 'header.php';
 		<div class="col">
 			<p>Acceder <strong>cliente no activo</strong></p>
 			<button type="button" id="btnCInactivo" class="botonAmarillo btnPruebas">Probar</button>
-			<p>Con éste usuario y contraseña no se podrá acceder ya que el usuario no está activo. Mostrará el mensaje <strong>"Usuario o password incorrectos"</strong> que envía el servidor.</p>
+			<p>Con éste usuario y contraseña no se podrá acceder ya que el usuario no está activo. Mostrará el mensaje <strong>"El usuario está desactivado"</strong> que envía el servidor.</p>
 		</div>
 	</div>
 

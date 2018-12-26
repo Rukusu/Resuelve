@@ -99,11 +99,10 @@ jQuery(function($){
 	var pathname = window.location.pathname;
 	$(".botonDivisa").click(function() {
 		
-
  		$(this).addClass('active').siblings().removeClass("active");
  		
  		//Si es la vista del cliente
- 		if(pathname="/resuelve/cliente.php")
+ 		if(pathname == "/resuelve/cliente.php")
  		{
  			//No enviamos el id_usuario
  			obtenerMovimientosPorUsuario(token,-1,paginaActualMovimietos);

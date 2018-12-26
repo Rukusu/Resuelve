@@ -1,7 +1,4 @@
-
-
 jQuery(function($){
-
 
 	//Obtenemos la Información del Token de Login
 	var informacionUsr = parseJwt(token);
@@ -95,7 +92,3 @@ function construirTablaUsuarios(arregloClientes){
 
 	$('#paginaContenido').html(resultado);
 }
-
-
-
-

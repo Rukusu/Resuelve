@@ -6,16 +6,7 @@ include 'header.php';
 */
 ?>
 
-<section class="container-fluid">
-	<div class="row backgroundAzul justify-content-end topBar align-items-center">
-		<div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 text-right">
-			<p class="nombreUsuario"></p>
-		</div>
-		<div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 text-right">
-			<button type="button" class="botonAmarillo" id="botonCerrarSesion">Cerrar Sesión</button>
-		</div>
-	</div>
-</section>
+
 
 <section class="container-fluid tablaContenido">
 	<div class="row">

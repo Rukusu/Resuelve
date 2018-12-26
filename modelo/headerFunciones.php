@@ -15,7 +15,14 @@ function imprimeScripts()
             echo '<script  src="js/login.js"></script>';
             break;
         case 'admin':
-            echo '<script  src="js/admin.js"></script>';
+            echo '<script src="js/usuario.js"></script>'.
+            '<script  src="js/admin.js"></script>'.
+            '<script  src="js/movimientos.js"></script>';
+            break;
+        case 'cliente':
+            echo '<script src="js/usuario.js"></script>'.
+            '<script  src="js/cliente.js"></script>'.
+            '<script  src="js/movimientos.js"></script>';
             break;
         default:
             echo '<script  src="js/login.js"></script>';

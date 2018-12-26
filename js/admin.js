@@ -1,58 +1,22 @@
 
-var token = "";
-var api = "";
-var id_usuario="";
-var usd2mxn=0;
-var mxn2usd=0;
-var isPesosActive = true;
-var isDollarActive = false;
-var paginaActualMovimietos = 1;
-
-
-//Revisamos que exista el token
-if (sessionStorage.getItem('token') == null){
-	//Si no hay token lo regresamos al index
-	window.location.replace("index.php");
-}
-else
-{
-	//Obtenemos el token del login
-	token = sessionStorage.getItem("token");
-	//Obtenemos la API de la sesión
-	api = sessionStorage.getItem("api");
-
-	//Solicitamos los valores actuales de las divisas
-	axios.get(api+'/money/conversion')
-	.then(function(response) {
-	  usd2mxn = response.data.usd2mxn;
-	  mxn2usd = response.data.mxn2usd
-	})
-	.catch(function(error) {
-	  console.log(error)
-	})
-}
-
-
-//Funcion para cerrar la sesion
-jQuery(function($){
-	$("#botonCerrarSesion").click(function() {
-		//Borramos todo lo que hay en la sesion
-		sessionStorage.clear();
-		//Reditreccionamos al login
-		window.location.replace("index.php");
-	});
-});
-
 
 jQuery(function($){
+
+
+	//Obtenemos la Información del Token de Login
+	var informacionUsr = parseJwt(token);
+	//Mostramos el nombre de la persona que inició sesión
+	$(".nombreUsuario").text("Bienvenido, "+informacionUsr.nombre+" "+informacionUsr.apellido);
 
 	//Solicitamos el listado de los usuarios la primera vez que carga la página
 	obtenerListadoUsuarios(token,api+"/users/list?page=1&sortBy=apellido&sortDirection=desc");
-	
+
 	//Funcion para obtener los movimientos de cada usuario
 	$(document).on('click', '.botonMovimientos', function() {
 
+		//Habilitamos los botones del cambio de divisas
 		$('.botonDivisa').removeAttr('disabled');
+		
 		//Cuando ya se ha seleccionado al menos una ves los movimientos de un usuario
 		if(id_usuario != "")
 		{
@@ -77,11 +41,6 @@ jQuery(function($){
 function obtenerListadoUsuarios(token,urlPagina){
 	var listadoUsuarios;
 
-	//Obtenemos la Información del Token de Login
-	var informacion = parseJwt(token);
-	//Mostramos el nombre de la persona que inició sesión
-	$(".nombreUsuario").text("Bienvenido, "+informacion.nombre+" "+informacion.apellido);
-
 						
 	//Enviamos el Token para obtener el listado de Usuarios
 	axios.get(urlPagina, {
@@ -102,30 +61,6 @@ function obtenerListadoUsuarios(token,urlPagina){
 	})
 }
 
-function obtenerMovimientosPorUsuario(token,user_id,pagina)
-{
-	var url=api+'/users/'+user_id+'/movements?page='+pagina+'&sortBy=amount&sortDirection=desc';
-	var listadoMovimientos;
-		
-	//Obtenemos el listado de movimientos	
-	axios.get(url,{
-		headers: { "Authorization": token }
-	})
-	.then(function(response) {
-
-		//Construimos el paginador
-		construirPaginadorMovimientos(response.data.pagination.totalPages);
-							
-		//Enviamos la información para desplegarla en pantalla
-		construirTablaMovimientos(response.data.records);
-
-	})
-	.catch(function(error) {
-		console.log(error)
-	})
-
-
-}
 
 function construirPaginadorUsuarios(paginasTotales){
 
@@ -161,81 +96,6 @@ function construirTablaUsuarios(arregloClientes){
 	$('#paginaContenido').html(resultado);
 }
 
-function construirPaginadorMovimientos(paginasTotales){
-
-	$('#listaPaginacionMovimientos').twbsPagination({
-		totalPages: paginasTotales,
-		visiblePages: 5,
-		next: 'Siguiente',
-		prev: 'Anterior',
-		first: 'Primero',
-		last: 'Último',
-		onPageClick: function (event, pagina) {
-			paginaActualMovimietos=pagina;
-		    //Solicitamos los movimientos del usuario de la siguiente página
-		    obtenerMovimientosPorUsuario(token,id_usuario,pagina);
-		}
-	});
-}
-
-//Funcion para construi la tabla de movimientos
-function construirTablaMovimientos(arregloMovimientos){
-	var resultado="";
-	arregloMovimientos.forEach(movimiento => {
-		var fila='<tr>'+
-		'<td>'+movimiento.description+'</td>'+
-		'<td>'+movimiento.type+'</td>'+
-		'<td>'+darFormatoCantidad(movimiento.amount)+'</td>'+
-		'<td>'+new Date(movimiento.created_at)+'</td>'+
-		'</tr>';
-		resultado+=fila;
-	});
-
-	$('#paginaContenidoMovimientos').html(resultado);
-	$('p.cuenta').text("Cuenta: "+arregloMovimientos[0].account);
-}
-
-//Funcion para dar formato de dinero a las cantidades
-function darFormatoCantidad(cantidad){
-	var resultado = 0;
-	if(isPesosActive)
-	{
-		const formatter = new Intl.NumberFormat('es-MX', {
-			style: 'currency',
-			currency: 'MXN',
-			minimumFractionDigits: 2
-		})
-		resultado= formatter.format(cantidad/100)
-	}//Dollar
-	else
-	{
-		const formatter = new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 2
-		})
-		resultado = formatter.format((cantidad/100)*mxn2usd);
-	}
-
-	return resultado;
-}
-jQuery(function($){
-	$(".botonDivisa").click(function() {
 
 
- 		$(this).addClass('active').siblings().removeClass("active");
- 		
- 		 obtenerMovimientosPorUsuario(token,id_usuario,paginaActualMovimietos);
- 		//Obtenemos el id del usuario
-		if($(this).attr("id")=="botonCambiaPeso")
-		{
-			isPesosActive = true;
-			isDollarActive = false;
-		}
-		else
-		{
-			isPesosActive = false;
-			isDollarActive = true;
-		}
-    });
-});
+

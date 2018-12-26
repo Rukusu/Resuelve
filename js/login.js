@@ -6,6 +6,10 @@ jQuery(function($){
 		login(user,password);
 	});
 });
+jQuery(function($){
+	//Ocultamos la topbar en la página de login
+	$("header").hide();
+});
 
 function login(user, password){
 
